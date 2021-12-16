@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
@@ -17,6 +17,7 @@ const Header = () => {
   return (
     <header>
       <SuperHeader />
+      <TopDecorator />
       <MainHeader>
         <Side>
           <Logo />
@@ -39,6 +40,17 @@ const Header = () => {
     </header>
   );
 };
+
+const TopDecorator = styled.div`
+  display: none;
+
+  @media ${QUERIES.phone} {
+    display: block;
+    background-color: ${COLORS.gray[900]};
+    height: 4px;
+    width: 100%;
+  }
+`;
 
 const MainHeader = styled.div`
   display: flex;
