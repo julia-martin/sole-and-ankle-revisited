@@ -31,11 +31,11 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <NavMobile>
-          <Icon id="shopping-bag" />
-          <Icon id="search" />
-          <Icon id="menu" />
-        </NavMobile>
+        <IconNav>
+          <IconButton><Icon id="shopping-bag" /></IconButton>
+          <IconButton><Icon id="search" /></IconButton>
+          <IconButton onClick={() => setShowMobileMenu(true)}><Icon id="menu" /></IconButton>
+        </IconNav>
         <Side />
       </MainHeader>
 
@@ -75,7 +75,7 @@ const Nav = styled.nav`
   gap: 48px;
   margin: 0px 48px;
 
-  @media ${QUERIES.phone} {
+  @media ${QUERIES.tablet} {
     display: none;
   }
 `;
@@ -84,7 +84,7 @@ const Side = styled.div`
   flex: 1;
 
   &:nth-of-type(2) {
-    @media ${QUERIES.phone} {
+    @media ${QUERIES.tablet} {
       display: none;
     }
   }
@@ -102,14 +102,19 @@ const NavLink = styled.a`
   }
 `;
 
-const NavMobile = styled.nav`
+const IconNav = styled.nav`
   display: none;
 
-  @media ${QUERIES.phone} {
+  @media ${QUERIES.tablet} {
     display: flex;
     gap: 1.5rem;
     margin-left: 1.5rem;
   }
+`;
+
+const IconButton = styled.button`
+  background-color: transparent;
+  border: none;
 `;
 
 export default Header;
