@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { WEIGHTS, QUERIES } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -47,10 +47,23 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
+
+  @media ${QUERIES.tablet} {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
 `;
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+
+  @media ${QUERIES.tablet} {
+    flex-basis: 0;
+
+    ${Spacer} {
+      display: none;
+    }
+  }
 `;
 
 const MainColumn = styled.div`
